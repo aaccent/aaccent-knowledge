@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="ak" name="База знаний аАкцент"
+                  start-page="home.topic">
+
+    <toc-element topic="home.topic" toc-title="Главная"/>
+    <toc-element topic="check-lists.topic">
+        <toc-element topic="design.md"/>
+        <toc-element topic="layout.md"/>
+    </toc-element>
+</instance-profile>

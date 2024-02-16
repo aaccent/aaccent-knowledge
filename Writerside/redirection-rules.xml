@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="6917fa85">
+        <description>Created after removal of "Главная" from Help Instance</description>
+        <accepts>Home.html</accepts>
+    </rule>
+    <rule id="7582cc38">
+        <description>Created after removal of "Section Starting Page" from aAccent Knowledge</description>
+        <accepts>Section-Starting-Page.html</accepts>
+    </rule>
+    <rule id="4e8c01eb">
+        <description>Created after removal of " Чек листы" from База знаний аАкцент</description>
+        <accepts>Чек-листы.html</accepts>
+    </rule>
+    <rule id="4118325b">
+        <description>Created after removal of "Чек листы" from База знаний аАкцент</description>
+        <accepts>check-lists.html</accepts>
+    </rule>
+    <rule id="6cd52e08">
+        <description>Created after removal of "Test" from База знаний аАкцент</description>
+        <accepts>Test.html</accepts>
+    </rule>
+    <rule id="51179b2d">
+        <description>Created after removal of "test" from База знаний аАкцент</description>
+        <accepts>test.html</accepts>
+    </rule>
+</rules>
