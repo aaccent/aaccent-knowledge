@@ -6,7 +6,7 @@
                   start-page="home.topic">
 
     <toc-element topic="home.topic" toc-title="Главная"/>
-    <toc-element topic="check-lists.topic">
+    <toc-element topic="instructions.topic">
         <toc-element topic="design.md"/>
         <toc-element topic="layout.topic"/>
     </toc-element>

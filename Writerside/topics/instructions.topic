@@ -3,20 +3,16 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
-       title="Home" id="home" help-id="Home">
+       title="Инструкции и рекомендации" id="instructions" help-id="Home;check-lists">
 
     <section-starting-page>
-        <title>База знаний акцента</title>
+        <title>Инструкции и рекомендации</title>
         <description>
-            Инструкции, рекомендации и прочая информация для разработчиков, тестировщиков и менеджеров
+            Инструкции, требования и рекомендации для дизайнеров, разработчиков, тестировщиков и менджеров
         </description>
 
-        <spotlight>
-            <a href="instructions.topic" type="check-list" summary="Для ознакомления, изучения и цитирования">Инструкции и рекомендации</a>
-        </spotlight>
-
         <primary>
-            <title>Инструкции и списки</title>
+            <title>Этап разработки</title>
             <a href="design.md" type="creative" summary="Для перехода с дизайна на верстку">Дизайн</a>
             <a href="layout.topic" type="documents" summary="Для проверки и ведения верстки">Верстка</a>
             <a href="instructions.topic" type="mixed" summary="Для проверки и ведения сборки">Сборка</a>
