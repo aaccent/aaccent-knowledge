@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="layout" title="Верстка">
+    <show-structure for="chapter,procedure" depth="2"/>
+    <title>
+        Верстка
+    </title>
+    <chapter title="Адаптивность" id="adaptive">
+        <note>
+            <p>
+                Верстку первом делом нужно проверять конкретно на тех разрешениях, на которых сделан макет.
+                Если макет <code>1920px</code>, то проверка десктопа должна быть в этой ширине.
+                Если мобилка в <code>380px</code>, то мобилка должна проверяться в <code>380px</code>.
+            </p>
+        </note>
+        <p>Адаптивность десктопа нужно проверять на разрешениях:</p>
+        <list>
+            <li><code>1920px</code>, <code>1680px</code>, <code>1280px</code></li>
+        </list>
+        <tabs>
+            <tab title="Есть мобильный дизайн">
+                <list>
+                    <li>Проверить на <code>390x650</code></li>
+                    <li>Проверить на <code>320x480</code></li>
+                </list>
+            </tab>
+            <tab title="Нет мобильного дизайна">
+                Проверить только на <code>320x480</code>, что элементы имеют корректный вид
+            </tab>
+        </tabs>
+        <tip>
+            <p>
+                <control>Длина имеет значение</control>
+            </p>
+            <p>
+                Высота при мобилке имеет важность, т.к. адаптивность элементов может ломаться при маленькой высоте.
+            </p>
+        </tip>
+        <chapter title="Что проверять" id="what-check">
+            <p>
+                <control>При проверке соответствия с макетом:</control>
+            </p>
+            <list>
+                <li>Отступы внешние, внутренние, цвета, положение элементов</li>
+                <li>Толщина шрифта, межстрочный интервал, межбуквенный интервал, размер и сам шрифт</li>
+                <li>Описанные и отрисованы состояния попапов, форм, кнопок и других элементов</li>
+                <li>Описанные анимации</li>
+            </list>
+            <p>
+                <control>При проверке адаптива:</control>
+            </p>
+            <list>
+                <li>Накладывание элементов друг на друга</li>
+                <li>Элементы не должны неожиданно обрезаться и выходить за экран</li>
+                <li>Не должно быть необходимого горизонтального скролла</li>
+                <li>Не должно быть слишком крупного текста</li>
+                <li>Не должно быть отступов между блоками больше самих блоков</li>
+                <li>Контентные картинки не должны быть больше половины размера экрана</li>
+                <li>Структура и высота шапки с футером не должна ломаться - не должны переносится элементы на второй ряд
+                    в шапке
+                </li>
+            </list>
+            <note>
+                <p>
+                    Правила при проверке адаптива применяются если только это не требуется дизайном.
+                    Если дизайн нарушает правило - значит нужно следовать макету
+                </p>
+            </note>
+        </chapter>
+    </chapter>
+
+    <chapter title="Кроссбраузерность" id="cross-browsers">
+        <p>Необходимо проверять верстку в следующих браузерах</p>
+        <list>
+            <li>Chromium подобных <img src="chrome-icon.svg" alt="chrome" width="20"/> <img src="edge-icon.svg"
+                                                                                            alt="edge" width="20"/> <img
+                    src="opera-icon.svg" alt="opera" width="20"/></li>
+            <li>Safari <img src="safari-icon.svg" alt="safari" width="20"/></li>
+            <li>Firefox <img src="firefox-icon.svg" alt="firefox" width="20"/></li>
+        </list>
+        <tip>
+            <p>
+                Не обязательно проверять во всех chromium браузерах, т.к. они используют один и тот же движок для
+                отрисовки.
+                Достаточно самого хрома <img src="chrome-icon.svg" alt="chrome"/>
+            </p>
+        </tip>
+        <note>
+            <p>
+                safari <img src="safari-icon.svg" alt="safari"/> устаревает каждый год, поэтому проверять нужно на
+                актуальных версиях
+            </p>
+        </note>
+        <tip>
+            <p>Если нет возможности проверять в safari, то скажите про это - мы проверим сами</p>
+        </tip>
+    </chapter>
+
+    <chapter title="Формы" id="forms">
+        <chapter title="Стандартные формы" id="default-forms">
+            <deflist>
+                <def title="Отправка с обязательными полями">
+                    Форму нельзя отправить без заполнения
+                    <tooltip term="required-input">обязательных полей</tooltip>
+                </def>
+                <def title="Обязательные поля">
+                    <p>
+                        <tooltip term="required-input">Обязательные поля</tooltip>
+                        должны иметь <code>required</code> атрибут
+                    </p>
+                    <code-block lang="html">
+                        <![CDATA[
+                            <input name="name" placeholder="Имя" required>
+                        ]]>
+                    </code-block>
+                    <tip>
+                        <p>
+                            Есть случаи, когда проверка на ввод происходит через JS и <code>required</code> не
+                            требуется.
+                            Прежде всего нужно проверить, отправляется ли форма без ввода полей,
+                            если да - значит нужен <code>required</code> атрибут
+                        </p>
+                    </tip>
+                </def>
+                <def title="Спасибо">
+                    После отправки формы должна появится благодарность или состояние при котором
+                    пользователь поймёт, что данные отправлены.
+                    Так же после отправки данные в полях должны очищаться
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Формы с файлами" id="files-forms">
+            <deflist>
+                <def title="Длинное название">
+                    При прикладывании файла с очень длинным названием
+                    не должна
+                    <tooltip term="layout-break">ломаться верстка</tooltip>
+                </def>
+                <def title="Большой размер">
+                    Не должно быть возможности приложить файл размером более <code>250МБ</code>
+                </def>
+                <def title="Неправильный формат">
+                    <p>
+                        Если форма требуют документа, то не должно быть возможности приложить <code>.php</code> файла
+                        или других форматов, которые не связаны с документом.
+                        По той же аналогии с картинками и другими форматами.
+                    </p>
+                    <note>
+                        <p>
+                            Форматы файлов, которые описывают документы: <code>.doc</code>, <code>.docx</code>,
+                            <code>.gdoc</code>, <code>.md</code>, <code>.pdf</code>, <code>.txt</code>
+                        </p>
+                    </note>
+                </def>
+                <def title="Можно убрать">
+                    Файл возможно убрать из приложенных
+                </def>
+                <def title="Множество файлов">
+                    Не должна <tooltip term="layout-break">ломаться верстка</tooltip> при возможности приложить более 3 файлов
+                </def>
+            </deflist>
+        </chapter>
+    </chapter>
+
+    <chapter title="Контент" id="content">
+    </chapter>
+
+    <chapter title="Попапы" id="popups">
+    </chapter>
+
+    <chapter title="Карта" id="map">
+    </chapter>
+
+    <chapter title="Медиа" id="media">
+    </chapter>
+</topic>

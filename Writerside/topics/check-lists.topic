@@ -14,7 +14,7 @@
         <primary>
             <title>Этап разработки</title>
             <a href="design.md" type="creative" summary="Чек листы и требования для макетов">Дизайн</a>
-            <a href="layout.md" type="documents" summary="Чек листы и требования для верстки">Верстка</a>
+            <a href="layout.topic" type="documents" summary="Чек листы и требования для верстки">Верстка</a>
             <a href="check-lists.topic" type="mixed" summary="Чек листы и требования для сборки">Сборка</a>
         </primary>
     </section-starting-page>

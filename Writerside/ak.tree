@@ -8,6 +8,6 @@
     <toc-element topic="home.topic" toc-title="Главная"/>
     <toc-element topic="check-lists.topic">
         <toc-element topic="design.md"/>
-        <toc-element topic="layout.md"/>
+        <toc-element topic="layout.topic"/>
     </toc-element>
 </instance-profile>
