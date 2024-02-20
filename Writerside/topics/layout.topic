@@ -4,6 +4,7 @@
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        id="layout" title="Верстка">
     <show-structure for="chapter,procedure" depth="2"/>
+
     <title>
         Верстка
     </title>
@@ -74,27 +75,37 @@
     <chapter title="Кроссбраузерность" id="cross-browsers">
         <p>Необходимо проверять верстку в следующих браузерах</p>
         <list>
-            <li>Chromium подобных <img src="chrome-icon.svg" alt="chrome" width="20"/> <img src="edge-icon.svg"
-                                                                                            alt="edge" width="20"/> <img
-                    src="opera-icon.svg" alt="opera" width="20"/></li>
-            <li>Safari <img src="safari-icon.svg" alt="safari" width="20"/></li>
-            <li>Firefox <img src="firefox-icon.svg" alt="firefox" width="20"/></li>
+            <li>
+                Chromium подобных
+                <img src="chrome-icon.svg" alt="Google Chrome logo" width="20"/>
+                <img src="edge-icon.svg" alt="Edge logo" width="20"/>
+                <img src="opera-icon.svg" alt="Opera logo" width="20"/>
+                <img src="yandex-icon.svg" alt="Yandex browser logo" width="20"/>
+            </li>
+            <li>
+                Safari
+                <img src="safari-icon.svg" alt="Safari" width="20"/>
+            </li>
+            <li>
+                Firefox
+                <img src="firefox-icon.svg" alt="Mozilla Firefox logo" width="20"/>
+            </li>
         </list>
         <tip>
             <p>
                 Не обязательно проверять во всех chromium браузерах, т.к. они используют один и тот же движок для
                 отрисовки.
-                Достаточно самого хрома <img src="chrome-icon.svg" alt="chrome"/>
+                Достаточно самого Google Chrome
             </p>
         </tip>
         <note>
             <p>
-                safari <img src="safari-icon.svg" alt="safari"/> устаревает каждый год, поэтому проверять нужно на
+                Safari устаревает каждый год, поэтому проверять нужно на
                 актуальных версиях
             </p>
         </note>
         <tip>
-            <p>Если нет возможности проверять в safari, то скажите про это - мы проверим сами</p>
+            <p>Если нет возможности проверять в Safari, то скажите про это - мы проверим сами</p>
         </tip>
     </chapter>
 
