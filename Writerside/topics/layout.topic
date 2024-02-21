@@ -9,36 +9,38 @@
         Верстка
     </title>
     <chapter title="Адаптивность" id="adaptive">
-        <note>
-            <p>
-                Верстку первом делом нужно проверять конкретно на тех разрешениях, на которых сделан макет.
-                Если макет <code>1920px</code>, то проверка десктопа должна быть в этой ширине.
-                Если мобилка в <code>380px</code>, то мобилка должна проверяться в <code>380px</code>.
-            </p>
-        </note>
-        <p>Адаптивность десктопа нужно проверять на разрешениях:</p>
-        <list>
-            <li><code>1920px</code>, <code>1680px</code>, <code>1280px</code></li>
-        </list>
-        <tabs>
-            <tab title="Есть мобильный дизайн">
-                <list>
-                    <li>Проверить на <code>390x650</code></li>
-                    <li>Проверить на <code>320x480</code></li>
-                </list>
-            </tab>
-            <tab title="Нет мобильного дизайна">
-                Проверить только на <code>320x480</code>, что элементы имеют корректный вид
-            </tab>
-        </tabs>
-        <tip>
-            <p>
-                <control>Длина имеет значение</control>
-            </p>
-            <p>
-                Высота при мобилке имеет важность, т.к. адаптивность элементов может ломаться при маленькой высоте.
-            </p>
-        </tip>
+        <chapter title="Размеры и форматы" id="adaptive-sizes">
+            <note>
+                <p>
+                    Верстку первом делом нужно проверять конкретно на тех разрешениях, на которых сделан макет.
+                    Если макет <code>1920px</code>, то проверка десктопа должна быть в этой ширине.
+                    Если мобилка в <code>380px</code>, то мобилка должна проверяться в <code>380px</code>.
+                </p>
+            </note>
+            <p>Адаптивность десктопа нужно проверять на разрешениях:</p>
+            <list>
+                <li><code>1920px</code>, <code>1680px</code>, <code>1280px</code></li>
+            </list>
+            <tabs>
+                <tab title="Есть мобильный дизайн">
+                    <list>
+                        <li>Проверить на <code>390x650</code></li>
+                        <li>Проверить на <code>320x480</code></li>
+                    </list>
+                </tab>
+                <tab title="Нет мобильного дизайна">
+                    Проверить только на <code>320x480</code>, что элементы имеют корректный вид
+                </tab>
+            </tabs>
+            <tip>
+                <p>
+                    <control>Длина имеет значение</control>
+                </p>
+                <p>
+                    Высота при мобилке имеет важность, т.к. адаптивность элементов может ломаться при маленькой высоте.
+                </p>
+            </tip>
+        </chapter>
         <chapter title="Что проверять" id="what-check">
             <p>
                 <control>При проверке соответствия с макетом:</control>
@@ -70,43 +72,42 @@
                 </p>
             </note>
         </chapter>
-    </chapter>
-
-    <chapter title="Кроссбраузерность" id="cross-browsers">
-        <p>Необходимо проверять верстку в следующих браузерах</p>
-        <list>
-            <li>
-                Chromium подобных
-                <img src="chrome-icon.svg" alt="Google Chrome logo" width="20"/>
-                <img src="edge-icon.svg" alt="Edge logo" width="20"/>
-                <img src="opera-icon.svg" alt="Opera logo" width="20"/>
-                <img src="yandex-icon.svg" alt="Yandex browser logo" width="20"/>
-            </li>
-            <li>
-                Safari
-                <img src="safari-icon.svg" alt="Safari" width="20"/>
-            </li>
-            <li>
-                Firefox
-                <img src="firefox-icon.svg" alt="Mozilla Firefox logo" width="20"/>
-            </li>
-        </list>
-        <tip>
-            <p>
-                Не обязательно проверять во всех chromium браузерах, т.к. они используют один и тот же движок для
-                отрисовки.
-                Достаточно самого Google Chrome
-            </p>
-        </tip>
-        <note>
-            <p>
-                Safari устаревает каждый год, поэтому проверять нужно на
-                актуальных версиях
-            </p>
-        </note>
-        <tip>
-            <p>Если нет возможности проверять в Safari, то скажите про это - мы проверим сами</p>
-        </tip>
+        <chapter title="Кроссбраузерность" id="cross-browsers">
+            <p>Необходимо проверять верстку в следующих браузерах</p>
+            <list>
+                <li>
+                    Chromium подобных
+                    <img src="chrome-icon.svg" alt="Google Chrome logo" width="20"/>
+                    <img src="edge-icon.svg" alt="Edge logo" width="20"/>
+                    <img src="opera-icon.svg" alt="Opera logo" width="20"/>
+                    <img src="yandex-icon.svg" alt="Yandex browser logo" width="20"/>
+                </li>
+                <li>
+                    Safari
+                    <img src="safari-icon.svg" alt="Safari" width="20"/>
+                </li>
+                <li>
+                    Firefox
+                    <img src="firefox-icon.svg" alt="Mozilla Firefox logo" width="20"/>
+                </li>
+            </list>
+            <tip>
+                <p>
+                    Не обязательно проверять во всех chromium браузерах, т.к. они используют один и тот же движок для
+                    отрисовки.
+                    Достаточно самого Google Chrome
+                </p>
+            </tip>
+            <note>
+                <p>
+                    Safari устаревает каждый год, поэтому проверять нужно на
+                    актуальных версиях
+                </p>
+            </note>
+            <tip>
+                <p>Если нет возможности проверять в Safari, то скажите про это - мы проверим сами</p>
+            </tip>
+        </chapter>
     </chapter>
 
     <chapter title="Формы" id="forms">
