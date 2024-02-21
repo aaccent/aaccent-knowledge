@@ -205,7 +205,7 @@
                         <p>
                             <code>id</code> для видео берется напрямую из кода
                         </p>
-                        <code-block lang="html" collapsible="true">
+                        <code-block lang="html">
                             <![CDATA[
                                 <div id="player"></div>
 
@@ -221,7 +221,7 @@
                     <p>
                         <code>id</code> видео берется из <code>data-*</code> аттрибута
                     </p>
-                    <code-block lang="html" collapsible="true">
+                    <code-block lang="html">
                         <![CDATA[
                             <div id="player" data-video="M7lc1UVf-VE"></div>
 
@@ -246,7 +246,7 @@
                         <p>
                             На странице несколько видео, но скрипт предполагал, что оно будет одно
                         </p>
-                        <code-block lang="html" collapsible="true">
+                        <code-block lang="html">
                             <![CDATA[
                                 <div id="player" data-video="M7lc1UVf-VE"></div>
                                 <div id="player" data-video="M7lc1UVf"></div>
@@ -266,7 +266,7 @@
                         <p>
                             Скрипт ищет и обрабатывается сразу несколько элементов
                         </p>
-                        <code-block lang="html" collapsible="true">
+                        <code-block lang="html">
                             <![CDATA[
                                 <div class="video-player" data-video="M7lc1UVf-VE"></div>
                                 <div class="video-player" data-video="M7lc1UVf-23"></div>
@@ -304,7 +304,7 @@
                                 Отдельный контейнер с другой длиной строки размещен без своего контейнера.
                                 Единый подряд-идущий контент разделен на несколько контейнеров.
                             </p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <p class="article__description">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -327,7 +327,7 @@
                                 Отдельные контентные части оборачиваются в <code>div</code> контейнер.
                                 Для единого контента размещен общий контейнер.
                             </p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="article__description">
                                         <p>
@@ -350,7 +350,7 @@
                     <def title="Долой классовое разделение">
                         <warning>
                             <p>Используются аттрибуты <code>id</code> и <code>class</code></p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <p class="content__text">
@@ -366,7 +366,7 @@
                         </warning>
                         <note>
                             <p>Всё содержимое контента должно быть без классов</p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <p>
@@ -383,7 +383,7 @@
                         <tip>
                             <p>Как стилизовать?</p>
                             <p>
-                                Пользуйтесь разными популярными тэгами и псевдо-элементами,
+                                Пользуйтесь специальными тэгами и псевдо-элементами,
                                 используйте CSS селекторы с операторами <code>+</code>, <code>></code> и
                                 псевдо-селекторами <code>:has()</code>, <code>:not()</code>, <code>:is()</code>
                             </p>
@@ -393,7 +393,7 @@
                     <def title="Долой индивидуальность">
                         <warning>
                             <p>Используются аттрибуты <code>style</code> для стилизации</p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <ul style="list-style:square;">
@@ -406,7 +406,7 @@
                         </warning>
                         <note>
                             <p>Не должно быть <code>style</code> аттрибута</p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <ul>
@@ -422,7 +422,7 @@
                     <def title="Лишние вложенности">
                         <warning>
                             <p>Используется <code>span</code> тэги без особой необходимости</p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <ul style="list-style:square;">
@@ -435,7 +435,7 @@
                         </warning>
                         <note>
                             <p>Не должно быть лишней вложенности, в идеале максимум 2 уровня из-за <code>ul</code></p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <ul>
@@ -451,7 +451,7 @@
                     <def title="Игнорирование специальных html тэгов">
                         <warning>
                             <p>Используются неподходящие тэги и классы для разделения особых блоков</p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <div class="caption-image">
@@ -472,7 +472,7 @@
                                 Используются специальные тэги для подходящих случаев.
                                 Благодаря другим названиям их можно использовать в селекторах CSS
                             </p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <div class="content">
                                         <figure>
@@ -495,7 +495,7 @@
                             <p>
                                 Деление на блоки с помощью <code>div</code> с целью добавить отступы
                             </p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <style>
                                         .content div + div {
@@ -523,7 +523,7 @@
                             <p>
                                 Использование заголовков для разделения
                             </p>
-                            <code-block lang="html" collapsible="true">
+                            <code-block lang="html">
                                 <![CDATA[
                                     <style>
                                         .content h2 {
