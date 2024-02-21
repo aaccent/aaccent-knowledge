@@ -529,9 +529,19 @@
             </deflist>
         </chapter>
 
+        <chapter title="Видео" id="media-video">
+            <deflist>
+                <def title="Расширение">
+                    <p>
+                        Все загруженные видео должны быть обязательно в формате <code>.webm</code>
+                    </p>
+                </def>
+            </deflist>
+        </chapter>
+
         <chapter title="Шрифты" id="media-fonts">
             <deflist>
-                <def title="Формат">
+                <def title="Расширение">
                     Все шрифты должны подключаться через локальные файлы формата <code>.woff</code> и <code>.woff2</code>.
                     Не должно быть подключений через Google Fonts.
                 </def>
@@ -563,6 +573,12 @@
                             т.к. корень сайта не в директории <path>/</path>, а в <path>/название_репозитория/</path>
                         </p>
                     </tip>
+                </def>
+
+                <def default-state="expanded" title="Сторонние библиотеки">
+                    <p>
+                        Все сторонние библиотеки должны подключаться через локальные файлы, никаких сторонних подключений
+                    </p>
                 </def>
             </deflist>
         </chapter>
