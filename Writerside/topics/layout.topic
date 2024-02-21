@@ -585,6 +585,31 @@
     </chapter>
 
     <chapter title="Элементы" id="elements">
+        <chapter title="Общее" id="elements-general">
+            <deflist>
+                <def title="Кнопки">
+                    Все кнопки, которые не ссылки должны быть с тэгом <code>button</code>
+                </def>
+                <def title="Логотип">
+                    Логотип компании всегда должен быть ссылкой на главную сайта
+                </def>
+                <def title="Хлебные крошки">
+                    <p>
+                        Хлебные крошки должны быть размещены либо в корне/контейнера документа, либо в шапке.
+                        Он не должен находится в контенте или в первом блоке страницы.
+                    </p>
+                    <tip>
+                        <control>Зачем?</control>
+                        <p>
+                            Когда сборщик занимается своим делом, то шаблоны шапки, футера, блоков и контента страницы
+                            находятся в разных местах и файлах.
+                            Размещение элементов в отдельные блоки упрощают работу над этим.
+                        </p>
+                    </tip>
+                </def>
+            </deflist>
+        </chapter>
+        
         <chapter title="Формы" id="forms">
             <chapter title="Стандартные формы" id="default-forms">
                 <deflist>
@@ -653,9 +678,87 @@
         </chapter>
 
         <chapter title="Попапы" id="popups">
+            <deflist>
+                <def title="Закрытие">
+                    При нажатии на <shortcut>ESC</shortcut> или на "темную" сторону должен закрываться открытый попап
+                </def>
+                <def title="Выбор или действие">
+                    Попапы с селекторами или действиями отправки формы должны закрываться после
+                    выбора или отправки соответственно
+                </def>
+                <def title="Адаптив">
+                    Нужно отдельно проверить адаптив попапов на экранах с высотой меньше <code>500px</code>
+                </def>
+                <def title="Взаимодействие с меню">
+                    Если на сайте меню на мобильных разрешениях открывается в попапах или перекрывает сайт,
+                    и при этом в этом меню есть кнопка вызова попапа, то нужно проверить данное взаимодействие
+                </def>
+            </deflist>
         </chapter>
 
         <chapter title="Карта" id="map">
+            <deflist collapsible="true" default-state="expanded">
+                <def title="Стили">
+                    Стилизация карты всегда должна повторять макет. Не должно быть копирайт элементов или лишнего текста
+                </def>
+                <def title="API ключ">
+                    Если требуется ключ для подключения карты и мы его не предоставили - вам необходимо его запросить
+                </def>
+                <def title="Метки" default-state="collapsed">
+                    <p>
+                        Если на карте есть метка, то координаты должны указываться через <code>data-*</code> аттрибут,
+                        а не хардкод в JS.
+                    </p>
+                    <code-block lang="html">
+                        <![CDATA[
+                            <div class="map" data-marker="54.444,55.123"></div>
+
+                            <script>
+                                const mapContainer = document.querySelector('.map')
+                                const markerCords = mapContainer.dataset.marker?.split(',').map(Number)
+
+                                const map = new Map(mapContainer, { center: markerCords })
+                                if (markerCords) map.addMark({ cords: markerCords })
+                            </script>
+                        ]]>
+                    </code-block>
+                    <tip>
+                        Если это список меток, то парсится должно так-же из html, но через сторонние элементы
+                        <code-block lang="html">
+                            <![CDATA[
+                                <div class="map-block">
+                                    <div class="map-block__data" style="display:hidden;">
+                                        <div class="map-marker" data-cords="54.444,55.123" data-title="lorem1"></div>
+                                        <div class="map-marker" data-cords="44.234,55.123" data-title="lorem2"></div>
+                                        <div class="map-marker" data-cords="34.104,55.123" data-title="lorem3"></div>
+                                    </div>
+                                    <div class="map-block__active-marker"></div>
+                                    <div class="map"></div>
+                                </div>
+
+                                <script>
+                                    const markersElList = document.querySelectorAll('.map-marker')
+                                    const markersList = Array.from(markersElList).map(el => ({
+                                        cords: el.dataset.marker?.split(',').map(Number),
+                                        title: el.dataset.title.trim(),
+                                    }))
+
+                                    const mapContainer = document.querySelector('.map')
+                                    const map = new Map(mapContainer, { center: markerCords })
+
+                                    const activeMarkerEl = document.querySelector('.map-block__active-marker')
+                                    markersList.forEach((marker) => {
+                                        const map = map.addMark({ cords: marker.cords })
+                                        map.onClick = function() {
+                                            activeMarkerEl.innerText = marker.title
+                                        }
+                                    })
+                                </script>
+                            ]]>
+                        </code-block>
+                    </tip>
+                </def>
+            </deflist>
         </chapter>
     </chapter>
 </topic>
