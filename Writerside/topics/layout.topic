@@ -110,73 +110,6 @@
         </chapter>
     </chapter>
 
-    <chapter title="Формы" id="forms">
-        <chapter title="Стандартные формы" id="default-forms">
-            <deflist>
-                <def title="Отправка с обязательными полями">
-                    Форму нельзя отправить без заполнения
-                    <tooltip term="required-input">обязательных полей</tooltip>
-                </def>
-                <def title="Обязательные поля">
-                    <p>
-                        <tooltip term="required-input">Обязательные поля</tooltip>
-                        должны иметь <code>required</code> атрибут
-                    </p>
-                    <code-block lang="html">
-                        <![CDATA[
-                            <input name="name" placeholder="Имя" required>
-                        ]]>
-                    </code-block>
-                    <tip>
-                        <p>
-                            Есть случаи, когда проверка на ввод происходит через JS и <code>required</code> не
-                            требуется.
-                            Прежде всего нужно проверить, отправляется ли форма без ввода полей,
-                            если да - значит нужен <code>required</code> атрибут
-                        </p>
-                    </tip>
-                </def>
-                <def title="Спасибо">
-                    После отправки формы должна появится благодарность или состояние при котором
-                    пользователь поймёт, что данные отправлены.
-                    Так же после отправки данные в полях должны очищаться
-                </def>
-            </deflist>
-        </chapter>
-
-        <chapter title="Формы с файлами" id="files-forms">
-            <deflist>
-                <def title="Длинное название">
-                    При прикладывании файла с очень длинным названием
-                    не должна
-                    <tooltip term="layout-break">ломаться верстка</tooltip>
-                </def>
-                <def title="Большой размер">
-                    Не должно быть возможности приложить файл размером более <code>250МБ</code>
-                </def>
-                <def title="Неправильный формат">
-                    <p>
-                        Если форма требуют документа, то не должно быть возможности приложить <code>.php</code> файла
-                        или других форматов, которые не связаны с документом.
-                        По той же аналогии с картинками и другими форматами.
-                    </p>
-                    <note>
-                        <p>
-                            Форматы файлов, которые описывают документы: <code>.doc</code>, <code>.docx</code>,
-                            <code>.gdoc</code>, <code>.md</code>, <code>.pdf</code>, <code>.txt</code>
-                        </p>
-                    </note>
-                </def>
-                <def title="Можно убрать">
-                    Файл возможно убрать из приложенных
-                </def>
-                <def title="Множество файлов">
-                    Не должна <tooltip term="layout-break">ломаться верстка</tooltip> при возможности приложить более 3 файлов
-                </def>
-            </deflist>
-        </chapter>
-    </chapter>
-
     <chapter title="Контент" id="content">
         <p><control>Контент</control> - эта та часть, которая содержит недекоративные картинки, сео тексты, описания, основную часть статьи и т.п.</p>
 
@@ -634,10 +567,79 @@
             </deflist>
         </chapter>
     </chapter>
-    
-    <chapter title="Попапы" id="popups">
-    </chapter>
 
-    <chapter title="Карта" id="map">
+    <chapter title="Элементы" id="elements">
+        <chapter title="Формы" id="forms">
+            <chapter title="Стандартные формы" id="default-forms">
+                <deflist>
+                    <def title="Отправка с обязательными полями">
+                        Форму нельзя отправить без заполнения
+                        <tooltip term="required-input">обязательных полей</tooltip>
+                    </def>
+                    <def title="Обязательные поля">
+                        <p>
+                            <tooltip term="required-input">Обязательные поля</tooltip>
+                            должны иметь <code>required</code> атрибут
+                        </p>
+                        <code-block lang="html">
+                            <![CDATA[
+                            <input name="name" placeholder="Имя" required>
+                        ]]>
+                        </code-block>
+                        <tip>
+                            <p>
+                                Есть случаи, когда проверка на ввод происходит через JS и <code>required</code> не
+                                требуется.
+                                Прежде всего нужно проверить, отправляется ли форма без ввода полей,
+                                если да - значит нужен <code>required</code> атрибут
+                            </p>
+                        </tip>
+                    </def>
+                    <def title="Спасибо">
+                        После отправки формы должна появится благодарность или состояние при котором
+                        пользователь поймёт, что данные отправлены.
+                        Так же после отправки данные в полях должны очищаться
+                    </def>
+                </deflist>
+            </chapter>
+
+            <chapter title="Формы с файлами" id="files-forms">
+                <deflist>
+                    <def title="Длинное название">
+                        При прикладывании файла с очень длинным названием
+                        не должна
+                        <tooltip term="layout-break">ломаться верстка</tooltip>
+                    </def>
+                    <def title="Большой размер">
+                        Не должно быть возможности приложить файл размером более <code>250МБ</code>
+                    </def>
+                    <def title="Неправильный формат">
+                        <p>
+                            Если форма требуют документа, то не должно быть возможности приложить <code>.php</code> файла
+                            или других форматов, которые не связаны с документом.
+                            По той же аналогии с картинками и другими форматами.
+                        </p>
+                        <note>
+                            <p>
+                                Форматы файлов, которые описывают документы: <code>.doc</code>, <code>.docx</code>,
+                                <code>.gdoc</code>, <code>.md</code>, <code>.pdf</code>, <code>.txt</code>
+                            </p>
+                        </note>
+                    </def>
+                    <def title="Можно убрать">
+                        Файл возможно убрать из приложенных
+                    </def>
+                    <def title="Множество файлов">
+                        Не должна <tooltip term="layout-break">ломаться верстка</tooltip> при возможности приложить более 3 файлов
+                    </def>
+                </deflist>
+            </chapter>
+        </chapter>
+
+        <chapter title="Попапы" id="popups">
+        </chapter>
+
+        <chapter title="Карта" id="map">
+        </chapter>
     </chapter>
 </topic>
