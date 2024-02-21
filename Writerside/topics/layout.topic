@@ -569,12 +569,75 @@
         </chapter>
     </chapter>
 
+    <chapter title="Медиа и статика" id="media">
+        <chapter title="Картинки и иконки" id="media-images">
+            <deflist>
+                <def title="Расширение">
+                    <p>
+                        Иконки интерфейса должны быть в <code>.svg</code> формате через тэг <code>img</code> или
+                        <code>svg</code>, фотографии в <code>.webp</code>
+                    </p>
+                    <tip>
+                        На <code>.jpg</code> можно закрыть глаза при условии, что фото весит не более 50-100 КБайт.
+                        Но <code>.png</code> должен быть обязательно конвертирован в <code>.webp</code>, т.к. размеры
+                        значительно меньше
+                    </tip>
+                </def>
+                <def title="Размер файла">
+                    <p>Фотографии не должны превышать размер в 400-800 КБайт в зависимости от использования:</p>
+                    <list>
+                        <li>Если это обложка на странице статьи высотой около <code>500px</code>, то 400-700 КБайт - норма.</li>
+                        <li>Для маленьких блочных картинок размером около <code>350px</code> такой размер это много</li>
+                    </list>
+                </def>
+                <def title="Качество">
+                    <p>Качество сжатия <code>.webp</code> должно быть 60-90 в зависимости от результата и размера.</p>
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Шрифты" id="media-fonts">
+            <deflist>
+                <def title="Формат">
+                    Все шрифты должны подключаться через локальные файлы формата <code>.woff</code> и <code>.woff2</code>.
+                    Не должно быть подключений через Google Fonts.
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Прочее" id="media-other">
+            <deflist collapsible="true">
+                <def title="Подключение картинок">
+                    <warning>
+                        <p>Не используйте абсолютные пути для подключения модулей</p>
+                        <code-block lang="html">
+                            <![CDATA[
+                                <img src="/path/to/img.jpg" alt=""/>
+                            ]]>
+                        </code-block>
+                    </warning>
+                    <note>
+                        <p>Нужно использовать относительные пути для подключения модулей</p>
+                        <code-block lang="html">
+                            <![CDATA[
+                                <img src="./path/to/img.jpg" alt=""/>
+                            ]]>
+                        </code-block>
+                    </note>
+                    <tip>
+                        <p>
+                            Если используется Github Pages для проверки верстки, то абсолютные пути не будут работать,
+                            т.к. корень сайта не в директории <path>/</path>, а в <path>/название_репозитория/</path>
+                        </p>
+                    </tip>
+                </def>
+            </deflist>
+        </chapter>
+    </chapter>
+    
     <chapter title="Попапы" id="popups">
     </chapter>
 
     <chapter title="Карта" id="map">
-    </chapter>
-
-    <chapter title="Медиа" id="media">
     </chapter>
 </topic>
