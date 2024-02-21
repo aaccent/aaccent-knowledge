@@ -15,7 +15,6 @@
             <title>Этап разработки</title>
             <a href="design.md" type="creative" summary="Для перехода с дизайна на верстку">Дизайн</a>
             <a href="layout.topic" type="documents" summary="Для проверки и ведения верстки">Верстка</a>
-            <a href="instructions.topic" type="mixed" summary="Для проверки и ведения сборки">Сборка</a>
         </primary>
     </section-starting-page>
 </topic>
