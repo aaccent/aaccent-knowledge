@@ -10,7 +10,10 @@
 или **бесплатное** IDE [WriterSide](https://www.jetbrains.com/writerside/)
 - Установленный [GIT](https://git-scm.com/)
 
-После скопируйте репозиторий и начните редактирование следуя [документации](https://www.jetbrains.com/help/writerside/getting-started.html)
+После скопируйте репозиторий, создайте новую ветку и начните редактирование
+следуя [документации](https://www.jetbrains.com/help/writerside/getting-started.html)
+
+Когда закончите с изменениями, нужно создать Pull Request и уведомить [Севастьяна](https://t.me/Sevastyan_K)
 
 Если вы не имеете технических навыков, то можете связаться с [Севастьяном](https://t.me/Sevastyan_K)
 для внесения правок, новых страниц, глав или тем.
