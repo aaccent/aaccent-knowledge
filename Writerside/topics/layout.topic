@@ -177,6 +177,395 @@
     </chapter>
 
     <chapter title="Контент" id="content">
+        <p><control>Контент</control> - эта та часть, которая содержит недекоративные картинки, сео тексты, описания, основную часть статьи и т.п.</p>
+
+        <chapter title="Картинки" id="content-images">
+            <deflist>
+                <def title="Перекрытия">
+                    На главной странице в первых блоках, в обложках статей и видео, в других подобных блоках
+                    дизайнер может добавить цветной слой с перекрытием.
+                    В верстке этот слой должен вставляться через pseudo или обычные элементы.
+                </def>
+                <def title="Края">
+                    Если в дизайне у контентной картинки есть скругления, то нужно не забыть добавить его в верстку
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Видео" id="content-video">
+            <deflist collapsible="true">
+                <def title="Youtube">
+                    <p>
+                        Если видео вставляется через
+                        <a href="https://developers.google.com/youtube/iframe_api_reference">IFrame Player API</a>,
+                        то <code>id</code> к видео должно забираться из <code>data-*</code> аттрибута, а не хардкод в JS.
+                    </p>
+                    <warning>
+                        <p>
+                            <code>id</code> для видео берется напрямую из кода
+                        </p>
+                        <code-block lang="html" collapsible="true">
+                            <![CDATA[
+                                <div id="player"></div>
+
+                                <script>
+                                new YT.Player('player', {
+                                  videoId: 'M7lc1UVf-VE',
+                                });
+                                </script>
+                            ]]>
+                        </code-block>
+                    </warning>
+                    <note>
+                    <p>
+                        <code>id</code> видео берется из <code>data-*</code> аттрибута
+                    </p>
+                    <code-block lang="html" collapsible="true">
+                        <![CDATA[
+                            <div id="player" data-video="M7lc1UVf-VE"></div>
+
+                            <script>
+                            const videoItem = document.querySelector('#player')
+                            const videoId = videoItem.dataset.video
+
+                            new YT.Player(videoItem, {
+                              videoId: videoId,
+                            });
+                            </script>
+                        ]]>
+                    </code-block>
+                </note>
+                </def>
+
+                <def title="Несколько элементов">
+                    <p>
+                        При написании скриптов нужно учитывать, что видео или картинок могут быть несколько штук
+                    </p>
+                    <warning>
+                        <p>
+                            На странице несколько видео, но скрипт предполагал, что оно будет одно
+                        </p>
+                        <code-block lang="html" collapsible="true">
+                            <![CDATA[
+                                <div id="player" data-video="M7lc1UVf-VE"></div>
+                                <div id="player" data-video="M7lc1UVf"></div>
+
+                                <script>
+                                const videoItem = document.querySelector('#player')
+                                const videoId = videoItem.dataset.video
+
+                                new YT.Player(videoItem, {
+                                  videoId: videoId,
+                                });
+                                </script>
+                            ]]>
+                        </code-block>
+                    </warning>
+                    <note>
+                        <p>
+                            Скрипт ищет и обрабатывается сразу несколько элементов
+                        </p>
+                        <code-block lang="html" collapsible="true">
+                            <![CDATA[
+                                <div class="video-player" data-video="M7lc1UVf-VE"></div>
+                                <div class="video-player" data-video="M7lc1UVf-23"></div>
+
+                                <script>
+                                const videos = document.querySelectorAll('.video-player')
+                                videos.forEach(videoItem => {
+                                    const videoId = videoItem.dataset.video
+
+                                    new YT.Player(videoItem, {
+                                      videoId: videoId,
+                                    });
+                                })
+                                </script>
+                            ]]>
+                        </code-block>
+                    </note>
+                </def>
+            </deflist>
+        </chapter>
+
+        <chapter title="Текст" id="content-text">
+            <p>
+                Весь текст в <tooltip term="content">контентной</tooltip> части должен верстаться по определенным правилам.
+                Это необходимо для значительного упрощения работы <tooltip term="content-manager">КМ'ам</tooltip>.
+            </p>
+
+            <chapter title="Правила" id="content-text-rules">
+                <p>Список правил с примерами того как не нужно и нужно делать:</p>
+
+                <deflist collapsible="true">
+                    <def title="Контейнеры">
+                        <warning>
+                            <p>
+                                Отдельный контейнер с другой длиной строки размещен без своего контейнера.
+                                Единый подряд-идущий контент разделен на несколько контейнеров.
+                            </p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <p class="article__description">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    </p>
+                                    <div class="article__content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                    <div class="article__content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>
+                                Отдельные контентные части оборачиваются в <code>div</code> контейнер.
+                                Для единого контента размещен общий контейнер.
+                            </p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="article__description">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                    <div class="article__content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                    </def>
+
+                    <def title="Долой классовое разделение">
+                        <warning>
+                            <p>Используются аттрибуты <code>id</code> и <code>class</code></p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <p class="content__text">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                        <ul class="list">
+                                            <li>Lorem</li>
+                                            <li>ipsum</li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>Всё содержимое контента должно быть без классов</p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                        <ul>
+                                            <li>Lorem</li>
+                                            <li>ipsum</li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                        <tip>
+                            <p>Как стилизовать?</p>
+                            <p>
+                                Пользуйтесь разными популярными тэгами и псевдо-элементами,
+                                используйте CSS селекторы с операторами <code>+</code>, <code>></code> и
+                                псевдо-селекторами <code>:has()</code>, <code>:not()</code>, <code>:is()</code>
+                            </p>
+                        </tip>
+                    </def>
+
+                    <def title="Долой индивидуальность">
+                        <warning>
+                            <p>Используются аттрибуты <code>style</code> для стилизации</p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <ul style="list-style:square;">
+                                            <li>Lorem</li>
+                                            <li>ipsum</li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>Не должно быть <code>style</code> аттрибута</p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <ul>
+                                            <li>Lorem</li>
+                                            <li>ipsum</li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                    </def>
+
+                    <def title="Лишние вложенности">
+                        <warning>
+                            <p>Используется <code>span</code> тэги без особой необходимости</p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <ul style="list-style:square;">
+                                            <li><span>Lorem</span></li>
+                                            <li><span>ipsum</span></li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>Не должно быть лишней вложенности, в идеале максимум 2 уровня из-за <code>ul</code></p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <ul>
+                                            <li>Lorem</li>
+                                            <li>ipsum</li>
+                                        </ul>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                    </def>
+
+                    <def title="Игнорирование специальных html тэгов">
+                        <warning>
+                            <p>Используются неподходящие тэги и классы для разделения особых блоков</p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <div class="caption-image">
+                                            <img src="" alt=""/>
+                                            <span></span>
+                                        </div>
+
+                                        <div class="quote">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                            <span>Lorem Ipsum</span>
+                                        </div>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>
+                                Используются специальные тэги для подходящих случаев.
+                                Благодаря другим названиям их можно использовать в селекторах CSS
+                            </p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <div class="content">
+                                        <figure>
+                                            <img src="" alt=""/>
+                                            <figcaption>Lorem ipsum dolor sit amet</figcaption>
+                                        </figure>
+
+                                        <blockquote>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                            <footer>Lorem Ipsum</footer>
+                                        </blockquote>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                    </def>
+
+                    <def title="Деление на блоки">
+                        <warning>
+                            <p>
+                                Деление на блоки с помощью <code>div</code> с целью добавить отступы
+                            </p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <style>
+                                        .content div + div {
+                                            margin-top: 20px;
+                                        }
+                                    </style>
+                                    <div class="content">
+                                        <div>
+                                            <h2>Lorem ipsum</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div>
+                                            <h2>Lorem ipsum</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <div>
+                                            <h2>Lorem ipsum</h2>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </warning>
+                        <note>
+                            <p>
+                                Использование заголовков для разделения
+                            </p>
+                            <code-block lang="html" collapsible="true">
+                                <![CDATA[
+                                    <style>
+                                        .content h2 {
+                                            margin-top: 20px;
+                                        }
+
+                                        .content h2:first-child {
+                                            margin-top: 0;
+                                        }
+                                    </style>
+                                    <div class="content">
+                                        <h2>Lorem ipsum</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        <h2>Lorem ipsum</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        <h2>Lorem ipsum</h2>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    </div>
+                                ]]>
+                            </code-block>
+                        </note>
+                    </def>
+                </deflist>
+            </chapter>
+
+            <chapter title="Содержание" id="content-table">
+                <p>У статьи может присутствовать содержание, правила для его добавления:</p>
+                <deflist>
+                    <def title="Авто генерация">
+                        <p>
+                            Содержание не должно добавляться вручную в верстку, в верстке должен быть только контейнер.
+                            А через JS должно генерироваться содержание парся <code>h2</code> и <code>h3</code> заголовки.
+                        </p>
+                    </def>
+                    <def title="Без следов">
+                        <p>
+                            Вы не должны заставлять <tooltip term="content-manager">КМ'ов</tooltip> добавлять ссылки или
+                            <code>id</code> на заголовки вручную. Все это должно генерироваться через JS.
+                        </p>
+                    </def>
+                </deflist>
+            </chapter>
+        </chapter>
     </chapter>
 
     <chapter title="Попапы" id="popups">
