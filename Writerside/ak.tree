@@ -11,6 +11,7 @@
         <toc-element topic="layout.topic"/>
     </toc-element>
     <toc-element toc-title="Объяснения">
+        <toc-element topic="who-is-that.topic"/>
         <toc-element topic="how-browser-render-pages.topic"/>
     </toc-element>
 </instance-profile>
