@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="how-browser-render-pages" title="Как браузер показывает страницы">
+    <show-structure for="chapter,procedure" depth="2"/>
+
+    <title>Как браузер показывает страницы</title>
+
+    <chapter title="Запрос и ответ" id="request-and-response">
+        <p>
+            Представим, что на сервере хранится файл <path>index.html</path> и
+            сервер настроен отдавать его при любых запросах.
+        </p>
+
+        <code-block lang="html" collapsible="true" collapsed-title="Содержимое файла index.html">
+            <![CDATA[
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Очередное описание базовых вещей</title>
+                    <style>
+                        body {
+                            font-size: 21px;
+                            background: green;
+                        }
+
+                        h1 {
+                            margin-bottom: 15px;
+                        }
+
+                        div {
+                            color: red;
+                        }
+
+                        img {
+                            width: 50px;
+                            height: 100px;
+                        }
+
+                        a {
+                            display: none;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <h1>Привет</h1>
+                    <div>
+                        <p>Элемент с текстом внутри</p>
+                    </div>
+                    <img src="./path/to/img.jpg" alt="" />
+                    <a>Меня не видно</a>
+                    <script>
+                        console.log('Hello')
+                    </script>
+                </body>
+                </html>
+            ]]>
+        </code-block>
+
+        <p>
+            Когда вы переходите на <path>https://somesite.com/</path>, который указывает на выше описанный сервер,
+            браузер делает запрос и получает в ответ файл <path>index.html</path>.
+        </p>
+        <p>
+            Вместе с файлом сервер так-же отправляет дополнительную информацию -
+            <control>заголовки</control>.
+            Один из заголовков указывает на то, какого типа файл был отправлен. В данном случае - <code>text/html</code>.
+            Благодаря ему браузер понимает, что перед ним html файл, а не картинка.
+        </p>
+
+        <tip>
+            <control>Зачем нужны заголовки?</control>
+            <p>
+                Напомню, что браузер умеет открывать не только <code>.html</code> файлы, а так же <code>.docx</code>,
+                <code>.pdf</code>, <code>.txt</code>, разные форматы картинок и видео, и много других форматов.
+                Это одна из причин существования заголовков - передавать дополнительную информацию о содержимом
+                ответа или запроса до его получения.
+            </p>
+        </tip>
+    </chapter>
+
+    <chapter title="Разбор ответа" id="parse-response">
+        <p>Когда браузер определился, что перед ними html документ, он начинает "читать":</p>
+        <p>
+            <code><!DOCTYPE html></code> - означает, что перед ним html версии 5, а значит нужно применять способы
+            разбора и
+            ожидать элементы из этой версии, а не новых или старых.
+        </p>
+
+        <tip>
+            <control>На кой эта строка?</control>
+            <p>
+                Интернет развивался не один десяток лет, за это время вышло много вариантов и предложений как выводить
+                страницы.
+                Один из этих вариантов html - имеет несколько версий. Каждая версия приносит что-то новое и отбрасывает
+                старое.
+                Чтобы не поддерживать тяжелую обратную совместимость, легче явно указывать используемую версию для
+                вывода страниц.
+            </p>
+        </tip>
+
+        <chapter title="HTML структура" id="html-structure">
+            <p>
+                Далее все содержимое разбивается на DOM дерево. Оно помогает понять браузеру, что есть в документе.
+                Какие есть картинки, скрипты, стили, подключения шрифтов, дополнительная информация вроде
+                тэга <code>title</code>, который отображает текст в заголовке вкладки.
+            </p>
+
+            <code-block lang="plantuml">
+            @startmindmap
+            * html
+                * head
+                    * meta
+                    * title
+                    * style
+                * body
+                    * h1
+                        * text: Привет
+                    * div
+                        * p
+                            * text: Элемент с текстом внутри
+                    * img
+                    * a
+                        * text: Меня не видно
+                    * script
+            @endmindmap
+            </code-block>
+
+            <p>
+                Разбитие на дерево возможно благодаря тому, что мы пишем закрывающие тэги <code>&lt;/html&gt;</code>,
+                <code>&lt;/body&gt;</code> и т.д. Это помогает разбирающему скрипту найти конец элемента.
+            </p>
+        </chapter>
+
+        <chapter title="Структура стилей" id="style-structure">
+            <p>
+                После разбития html структуры, браузер начинает составлять подобное дерево для стилизации элементов.
+                Данное дерево помогает в будущем суммировать стили по всему документу.
+            </p>
+
+            <code-block lang="plantuml">
+            @startmindmap
+            + body
+            --_ font-size: 21px
+            --_ background: green
+            ++ h1
+            +++_ margin-bottom: 15px
+            ++ div
+            +++_ color: red
+            ++ img
+            +++_ width: 50px
+            +++_ height: 100px
+            ++ a
+            +++_ display: none
+            @endmindmap
+            </code-block>
+
+            <tip>
+                <control>Не все так просто</control>
+                <p>
+                    Помимо стилей, которые добавляет верстка. У каждого элемента есть встроенные браузером стили.
+                    Реальное дерево, будет гораздо больше, даже с учетом, что верстка не приносит никаких стилей.
+                </p>
+            </tip>
+        </chapter>
+
+        <chapter title="Структура отрисовки" id="render-structure">
+            <p>
+                В конце разбора документа мы садим последнее дерево - <control>Дерево отрисовки</control>.
+                Оно указывает что должно быть отображено у пользователя и соединяет все стили в едино
+                для каждого элемента.
+            </p>
+
+            <code-block lang="plantuml">
+                @startmindmap
+                + body
+                --_ font-size: 21px
+                --_ background: green
+                ++ h1
+                +++_ font-size: 21px
+                +++_ margin-bottom: 15px
+                +++ text: Привет
+                ++ div
+                +++_ color: red
+                +++_ font-size: 21px
+                +++ p
+                ++++_ color: red
+                ++++_ font-size: 21px
+                ++++ text: Элемент с текстом внутри
+                ++ img
+                +++_ width: 50px
+                +++_ height: 100px
+                @endmindmap
+            </code-block>
+
+            <p>
+                Элемент <code>a</code> с текстом "Меня не видно" не входит в структуру отрисовки.
+                Причина этому - наличие <code>display: none;</code> в стилях и уже на этом этапе, браузер решает, что
+                выводить, а что нет.
+            </p>
+
+            <p>
+                В этом дереве нет <code>meta</code>, <code>script</code> и <code>style</code> элементов,
+                т.к. они не отображаются на экране по-умолчанию.
+            </p>
+
+            <p>
+                Стили <code>color: red;</code> и <code>font-size: 21px;</code> ушли на уровни вниз,
+                а <code>background: green</code> - нет.
+                Это потому-что все элементы по-умолчанию наследуют цвет текста и размер у своего родителя, но
+                не наследуется цвет заднего фона.
+            </p>
+        </chapter>
+    </chapter>
+
+    <chapter title="Отрисовка" id="render">
+        После всех посаженых деревьев, разрешенных вопросов со стилями и визуализацией, браузер начинает "рисовать"
+        перед вами элементы используя <control>Дерево отрисовки</control>.
+
+        <p>
+            Существует ещё одно неупомянутое дерево - синтаксическое дерево JS, оно создаётся
+            между <control>Деревом отрисовки</control> и <control>Дерево стилей</control>.
+            Существует для того, чтобы выполнять скрипты, предоставляемые документом и
+            производить оптимизации, преобразования и компиляцию браузером.
+        </p>
+    </chapter>
+</topic>
