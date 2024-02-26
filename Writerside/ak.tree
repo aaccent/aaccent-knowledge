@@ -9,9 +9,12 @@
     <toc-element toc-title="Инструкции">
         <toc-element topic="design.md"/>
         <toc-element topic="layout.topic"/>
+        <toc-element topic="layout-in-team.topic"/>
     </toc-element>
     <toc-element toc-title="Объяснения">
         <toc-element topic="who-is-that.topic"/>
+        <toc-element topic="what-is-layout.topic"/>
         <toc-element topic="how-browser-render-pages.topic"/>
+        <toc-element topic="layout-and-react-diff.topic"/>
     </toc-element>
 </instance-profile>
