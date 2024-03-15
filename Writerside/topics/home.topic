@@ -12,13 +12,14 @@
         </description>
 
         <spotlight>
-            <a href="layout.topic" type="documents" summary="Информация о проверке и процессе верстки">Проверка верстки</a>
+            <a href="layout-checks.topic" type="check-list" summary="Информация о проверке верстки">Проверка верстки</a>
+            <a href="layout-process.topic" type="documents" summary="Информация о процессе верстки">Процесс верстки</a>
         </spotlight>
 
         <primary>
             <title>Инструкции и списки</title>
             <a href="design.md" type="creative" summary="Для перехода с дизайна на верстку">Дизайн</a>
-            <a href="layout.topic" type="documents" summary="Для проверки и ведения верстки">Верстка</a>
+            <a href="layout-checks.topic" type="check-list" summary="Информация о проверке верстки">Проверка верстки</a>
         </primary>
     </section-starting-page>
 </topic>

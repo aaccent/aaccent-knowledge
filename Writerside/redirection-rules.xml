@@ -6,16 +6,8 @@
         <accepts>page.html</accepts>
     </rule>
     -->
-    <rule id="6917fa85">
-        <description>Created after removal of "Главная" from Help Instance</description>
-        <accepts>Home.html</accepts>
-    </rule>
-    <rule id="4e8c01eb">
-        <description>Created after removal of " Чек листы" from База знаний аАкцент</description>
-        <accepts>Чек-листы.html</accepts>
-    </rule>
-    <rule id="4118325b">
-        <description>Created after removal of "Чек листы" from База знаний аАкцент</description>
-        <accepts>check-lists.html</accepts>
+    <rule id="layout-topic">
+        <description>Создано после разделения layout.topic</description>
+        <accepts>layout.html</accepts>
     </rule>
 </rules>
