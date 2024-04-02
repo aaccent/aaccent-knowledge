@@ -657,7 +657,7 @@
                 </def>
                 <def title="Заголовки внутри секций">
                     <p>
-                        Если секция имеет карточки с заголовками, то они должны быть <code>div</code> тэгами.
+                        Если внутри секции нет явно видимых заголовков - то это не <code>h*</code> тэг.
                     </p>
 
                     <tabs>
@@ -666,6 +666,15 @@
                         </tab>
                         <tab title="С расставленными тэгами">
                             <img src="section-example_with-tags.png" alt="Пример секции с заголовками у карточек" width="600"/>
+                        </tab>
+                    </tabs>
+
+                    <tabs>
+                        <tab title="Пример секции">
+                            <img src="section-example2.png" alt="Пример секции с заголовками у карточек" width="600"/>
+                        </tab>
+                        <tab title="С расставленными тэгами">
+                            <img src="section-example2_with-tags.png" alt="Пример секции с заголовками у карточек" width="600"/>
                         </tab>
                     </tabs>
                 </def>
