@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Соглашения по коду" id="code-conventions">
+    <show-structure for="chapter, def" depth="2"/>
+
+    <title>Соглашения по коду</title>
+
+    <p>
+        Здесь описаны соглашения по коду, структурам и ведению репозитория.
+        Описанное касается в основном верстки, фронта и другого JS кода.
+    </p>
+
+    <chapter title="Структура" id="structure">
+        <p>
+            Структура построена с наименьшим вложением в глубину для упрощения навигаций и ссылок.
+            Создание новых подпапок без согласования допускается в:
+        </p>
+
+        <list>
+            <li><path>root</path></li>
+            <li><path>assets</path></li>
+            <li><path>page-components</path></li>
+            <li><path>pages</path></li>
+            <li><path>app</path></li>
+            <li><path>ui</path></li>
+        </list>
+
+        <p>
+            В остальных подпапки могут создавать только с согласованием команды,
+            т.к. возможно вам не нужна новая подпапка.
+        </p>
+
+        <p>Структуры верстки/фронта:</p>
+
+        <tabs>
+            <tab title="Верстка">
+                <code-block>
+                    layout-project-root/
+                    └── src/
+                        ├── assets/
+                        │   ├── content
+                        │   ├── static
+                        │   └── icons
+                        ├── components
+                        ├── global
+                        ├── layout/
+                            └── utils
+                        ├── features
+                        ├── pages
+                        ├── styles/
+                            ├── general
+                            └── utils
+                        ├── scripts
+                        └── ui/
+                            ├── buttons
+                            ├── cards
+                            ├── popups
+                            └── inputs
+                </code-block>
+            </tab>
+            <tab title="Next приложение">
+                <code-block>
+                    next-project-root/
+                    ├── public
+                    └── src/
+                        ├── app
+                        ├── assets/
+                        │   ├── static
+                        │   ├── content
+                        │   └── icons
+                        ├── components
+                        ├── global
+                        ├── layout
+                        ├── features
+                        ├── page-components
+                        ├── styles
+                        ├── types
+                        └── ui/
+                            ├── buttons
+                            ├── cards
+                            ├── popups
+                            └── inputs
+                </code-block>
+            </tab>
+        </tabs>
+
+        <deflist>
+            <def title="src">
+                В корне проекта всегда есть папка <path>src</path> для
+                отделения кода от конфигурационных файлов проекта
+            </def>
+
+            <def title="assets">
+                <p>
+                    Директория хранит в себе фотографии, видео и другие статические данные.
+                    Содержит три постоянных папки:
+                </p>
+
+                <list>
+                    <li>
+                        <path>assets/content</path> — Фотографии/видео для вывода на этапе разметки, но не реальном сайте.
+                        Например, обложки статей
+                    </li>
+                    <li>
+                        <path>assets/static</path> — Фотографии/видео, которые попадут на реальный сайт.
+                        Например, логотип, декоративный фон секций
+                    </li>
+                    <li>
+                        <path>assets/icon</path> — Статические иконки телефонов, меток на карте и других ui элементов.
+                        Зачастую должны быть в <code>*.svg</code> формате
+                    </li>
+                </list>
+
+                <tip>
+                    Помимо постоянных, могут создаваться дополнительные папки, свойственные только проекту.
+                    Например папка <path>assets/data</path> для хранения <code>json</code> данных
+                </tip>
+            </def>
+
+            <def title="components">
+                <p>
+                    Содержит в себе компоненты, используемые на более чем одной странице.
+                </p>
+
+                <warning>
+                    Все компоненты должны быть в своих папках.
+                    Не должно быть группирующих подпапок, например <path>components/page-blocks</path>.
+                </warning>
+                <warning>
+                    Если компонент используется только на одной странице, то его не должно быть в этой папке.
+                </warning>
+            </def>
+
+            <def title="features">
+                Папка с функционалом используемым между проектами или по всему сайту.
+                Например: попапы, анимации, карты, слайдеры, подключения библиотек.
+            </def>
+
+            <def title="global">
+                Папка содержит скрипты, компоненты, которые нельзя прировнять ни к одной из категорий.
+                Например: апи, константы, переиспользуемые переменные.
+            </def>
+
+            <def title="layout">
+                <p>
+                    Содержит компоненты с шаблонами страниц, шапкой, футером, контейнерами, общей разметкой секций и блоков.
+                </p>
+                <p>В верстке имеет дополнительную папку <path>utils</path> с миксинами и утилитами</p>
+                <tip>
+                    Если необходимо, шапка и футер могут переместиться в подпапки
+                    <path>layout/header</path> и <path>layout/footer</path>
+                </tip>
+            </def>
+
+            <def title="pages и page-components">
+                <p>
+                    В верстке <path>pages</path> содержит шаблон, скрипты, стили и папку <path>components</path>
+                    для компонентов, которые используются только на этой странице.
+                </p>
+
+                <p>
+                    В next <path>page-components</path> приложении содержит компоненты, которые экспортируются
+                    в папку <path>app</path> или <path>pages</path> в зависимости от версии
+                </p>
+
+                <p>
+                    Пример структуры страницы с локальным компонентом <code>some-component</code>:
+                </p>
+
+                <code-block>
+                    src/
+                    └── pages/
+                        └── main-page/
+                        ├── components/
+                        │   └── some-component/
+                        │       └── some-component.js
+                        ├── page.js
+                        ├── page.scss
+                        └── page.pug
+                </code-block>
+            </def>
+
+            <def title="styles">
+                <p>Содержит глобальные стили, не может содержать стилей от компонентов или страниц.</p>
+
+                <p>В верстке имеет две постоянных подпапки:</p>
+                <list>
+                    <li>
+                        <path>styles/general</path> — содержит общие для сайта файлы стилей
+                    </li>
+                    <li>
+                        <path>styles/utils</path> — содержит файлы с миксинами и утилитами
+                    </li>
+                </list>
+            </def>
+
+            <def title="scripts">
+                Содержит глобальные скриптов, не может содержать скриптов от компонентов или страниц.
+            </def>
+
+            <def title="types">
+                Содержит глобальные переиспользуемые типы от <code>typescript</code>.
+                Не может содержать типы от компонентов или страниц.
+            </def>
+
+            <def title="ui">
+                Содержит компоненты кнопок, текстов, карточек, попапов.
+                Помимо постоянных папок могут создаваться новые группы, свойственные только проекту
+            </def>
+        </deflist>
+    </chapter>
+</topic>

@@ -6,11 +6,14 @@
                   start-page="home.topic">
 
     <toc-element topic="home.topic" toc-title="Главная"/>
-    <toc-element toc-title="Инструкции">
+    <toc-element toc-title="Общие инструкции">
         <toc-element topic="design.md"/>
         <toc-element topic="layout-process.topic"/>
         <toc-element topic="layout-checks.topic" accepts-web-file-names-ref="layout-topic"/>
         <toc-element topic="layout-in-team.topic"/>
+    </toc-element>
+    <toc-element toc-title="Внутренние инструкции">
+        <toc-element topic="code-conventions.topic"/>
     </toc-element>
     <toc-element toc-title="Объяснения">
         <toc-element topic="who-is-that.topic"/>
