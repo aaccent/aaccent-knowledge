@@ -212,4 +212,121 @@
             </def>
         </deflist>
     </chapter>
+
+
+    <chapter title="Наименования файлов" id="naming-files">
+        <chapter title="React компоненты" id="naming-files-react-components">
+            <p>
+                Компоненты нужно наименовать в
+                <a href="https://www.theserverside.com/definition/Pascal-case">PascalCase</a> —
+                первая буква каждого слова в верхнем регистре, без тире и нижних подчеркиваний.
+            </p>
+            <p>
+                Если компонент находится в своей папке, то файл компонента должен называться так-же, как и папка.
+            </p>
+            <p>
+                Если компонент имеет свои типы, хуки или контексты, которые нужно вынести в отдельный файл,
+                то именовать нужно по шаблонам:
+            </p>
+            <list>
+                <li><code>&lt;ComponentName&gt;.hooks.jsx</code> — для хуков</li>
+                <li><code>&lt;ComponentName&gt;.contexts.jsx</code> — для контекстов</li>
+                <li><code>&lt;ComponentName&gt;.types.jsx</code> — для типов</li>
+            </list>
+            <control>Пример структуры:</control>
+            <code-block>
+                components/
+                └── ComponentName/
+                    ├── ComponentName.tsx
+                    ├── ComponentName.types.ts
+                    └── ComponentName.hooks.ts
+            </code-block>
+            <tip>
+                <control>Почему не <path>index.tsx</path></control>
+                <p>
+                    Если открывать файлы в редакторе, то отображается его название.
+                    Из-за <path>index.*</path> непонятно какой из них нужный.
+                </p>
+                <p>
+                    IDE могут решать эту проблему, добавляя название директории,
+                    но в инспекторе элементов и консоли такой возможности нет
+                </p>
+            </tip>
+            <note>
+                <control>У меня много крючков</control>
+                <p>
+                    Если много крупных хуков у компонента, то можно применить шаблон для наименования —
+                    <code>&lt;ComponentName&gt;-&lt;hook-name&gt;.hook.jsx</code>
+                </p>
+            </note>
+        </chapter>
+
+        <chapter title="Компоненты верстки" id="naming-files-layout-components">
+            <p>
+                Компоненты нужно наименовать в <a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a>
+                — всё в нижнем регистре, каждое слово разделено через тире.
+            </p>
+            <p>
+                Если компонент находится в своей папке, то файл, стили и скрипты компонента должен называться так-же, как и папка.
+            </p>
+            <control>Пример структуры:</control>
+            <code-block>
+                components/
+                └── component-name/
+                    ├── component-name.pug
+                    ├── component-name.js
+                    └── component-name.scss
+            </code-block>
+        </chapter>
+
+        <chapter title="Страницы верстки" id="naming-files-layout-pages">
+            <p>
+                Страницы верстки должны наименоваться по правилам:
+            </p>
+            <list>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case">kebab-case</a></li>
+                <li>Не использовать слово "page"</li>
+                <li>
+                    Не использовать похожие названия для двух страниц:
+                    <tabs>
+                        <tab title="Неправильно">
+                            <warning>
+                                <control>Используются сложно отличимые названия</control>
+                                <code-block lang="">
+                                    pages/
+                                    ├── category/
+                                    │   └── category.pug
+                                    ├── categories/
+                                    │   └── categories.pug
+                                    ├── service/
+                                    │   └── service.pug
+                                    └── services/
+                                        └── services.pug
+                                </code-block>
+                            </warning>
+                        </tab>
+                        <tab title="Правильно">
+                            <note>
+                                <control>Используются легко отличимые названия</control>
+                                <code-block lang="">
+                                    pages/
+                                    ├── category-item/
+                                    │   └── category-item.pug
+                                    ├── categories-list/
+                                    │   └── categories-list.pug
+                                    ├── service-item/
+                                    │   └── service-item.pug
+                                    └── services-list/
+                                        └── services-list.pug
+                                </code-block>
+                            </note>
+                        </tab>
+                    </tabs>
+                </li>
+            </list>
+            <p>
+                Если у страницы есть свои стили или скрипты, то их нужно называть так-же, как и страницу
+            </p>
+        </chapter>
+    </chapter>
 </topic>
