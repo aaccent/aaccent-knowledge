@@ -4,7 +4,7 @@
 <topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="Соглашения по коду" id="code-conventions">
-    <show-structure for="chapter, def" depth="2"/>
+    <show-structure for="chapter, def" depth="3"/>
 
     <title>Соглашения по коду</title>
 
@@ -324,6 +324,118 @@
             <p>
                 Если у страницы есть свои стили или скрипты, то их нужно называть так-же, как и страницу
             </p>
+        </chapter>
+    </chapter>
+
+    <chapter title="Наименования переменных" id="naming-variables">
+        <chapter title="Общее" id="naming-general">
+            <list>
+                <li>Названия обычных переменных пишутся в <code>camelCase</code></li>
+                <li>
+                    <p>Не использовать сокращения, которые "экономят" 2-5 буквы</p>
+
+                    <warning>
+                        <code-block lang="javascript">
+                            const btn = ''
+                            const ctx = ''
+                        </code-block>
+                    </warning>
+
+                    <note>
+                        <code-block lang="javascript">
+                            const button = ''
+                            const context = ''
+                        </code-block>
+                    </note>
+                </li>
+            </list>
+        </chapter>
+
+        <chapter title="Константы" id="naming-variables-constants">
+            <p>
+                У переменных со значениями, которые известным в момент создания переменной,
+                названия нужно писать в <code>SCREAMING_SNAKE_CASE</code> -
+                все буквы в верхнем регистре, между словами нижнее подчеркивание
+            </p>
+            <p>
+                Если это объект с картой значений, то параметры объекта должны быть в
+                <a href="https://en.wikipedia.org/wiki/Snake_case"><code>SCREAMING_SNAKE_CASE</code></a>
+            </p>
+
+            <code-block lang="javascript">
+                const SOME_VARIABLE = "value"
+
+                const ROUTES = {
+                    CATALOG: 'catalog',
+                    PROFILE: 'profile',
+                }
+            </code-block>
+        </chapter>
+
+        <chapter title="Typescript" id="naming-variables-typescript">
+            <chapter title="Интерфейсы и Типы" id="ts-types-interfaces">
+                <p>
+                    Все интерфейсы и типы должны писаться в <code>PascalCase</code>
+                </p>
+
+                <warning>
+                    Не нужно использовать слова <code>type</code>, <code>interface</code>
+                    или ставить <code>I</code> вначале названия.
+
+                    <code-block lang="typescript">
+                        type FancyType = string | number
+
+                        interface IFancyName = {
+                            a: number
+                            b: string
+                        }
+                    </code-block>
+                </warning>
+
+                <code-block lang="typescript">
+                    type SomeName = string | number
+
+                    interface FancyName = {
+                        a: number
+                        b: string
+                    }
+                </code-block>
+            </chapter>
+
+            <chapter title="Карта значений" id="ts-map-values">
+                <p>
+                    Допустим вы создаёте карту значений на JS
+                </p>
+
+                <code-block lang="typescript">
+                    const ROUTES = {
+                        CATALOG: 'catalog',
+                        PROFILE: 'profile',
+                    } as const
+                </code-block>
+
+                <p>
+                    И далее вы создаёте тип со значениями этого объекта.
+                    Название такой переменной не должно быть в множественном числе, как карта значений.
+                    Он должно быть в единичном, т.к. при использовании мы присваиваем только одно значение.
+                </p>
+
+                <note>
+                    <p>Название переменной в единичном числе</p>
+
+                    <code-block lang="typescript">
+                        type Route = typeof ROUTES[keyof typeof ROUTES]
+                    </code-block>
+                </note>
+
+                <warning>
+                    <p>Название переменной в множественном числе</p>
+
+                    <code-block lang="typescript">
+                        type Routes = typeof ROUTES[keyof typeof ROUTES]
+                    </code-block>
+                </warning>
+            </chapter>
         </chapter>
     </chapter>
 </topic>
