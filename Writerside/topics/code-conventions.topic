@@ -210,7 +210,6 @@
         </deflist>
     </chapter>
 
-
     <chapter title="Наименования файлов" id="naming-files">
         <chapter title="React компоненты" id="naming-files-react-components">
             <p>
@@ -437,5 +436,69 @@
                 </warning>
             </chapter>
         </chapter>
+    </chapter>
+
+    <chapter title="Структура кода" id="code-structure">
+        <p>
+            JavaScript позволяет вызывать функции до их объявления.
+            Такое поведение может путать, поэтому все функции должны использоваться после их объявления.
+        </p>
+
+        <p>
+            Подобное касается React компонентов. Функции внутри компонентов должны объявляться в начале компонента
+        </p>
+
+        <tabs>
+            <tab title="Правильно">
+                <note>
+                    <p><code>output()</code> объявлен перед использованием</p>
+
+                    <code-block lang="javascript">
+                        import React from 'react'
+
+                        export default function Component() {
+                        function output(list) {
+                        return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                        }
+
+                        return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                        }
+                    </code-block>
+                </note>
+            </tab>
+            <tab title="Не правильно">
+                <warning>
+                    <p><code>output()</code> используется до его объявления</p>
+
+                    <code-block lang="javascript">
+                        import React from 'react'
+
+                        export default function Component() {
+                        return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                        }
+
+                        function output(list) {
+                        return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                        }
+                    </code-block>
+                </warning>
+            </tab>
+        </tabs>
+
+        <tip>
+            <p>Если возможно, то функции нужно выводить вне компонента</p>
+
+            <code-block lang="javascript">
+                import React from 'react'
+
+                function output(list) {
+                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                }
+
+                export default function Component() {
+                return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                }
+            </code-block>
+        </tip>
     </chapter>
 </topic>
