@@ -653,17 +653,17 @@
 
                     <code-block lang="html">
                         &lt;div class="
-                        absolute
-                        left-0
-                        top-0
-                        p-[5px]
-                        m-[5px]
-                        w-[10px]
-                        h-[5px]
-                        block
-                        md:relative
-                        md:top-1
-                        md:m-[10px]
+                            absolute
+                            left-0
+                            top-0
+                            p-[5px]
+                            m-[5px]
+                            w-[10px]
+                            h-[5px]
+                            block
+                            md:relative
+                            md:top-1
+                            md:m-[10px]
                         "&gt;&lt;/div&gt;
                     </code-block>
 
