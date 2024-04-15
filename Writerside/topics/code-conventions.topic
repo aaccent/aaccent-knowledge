@@ -715,10 +715,10 @@
         </chapter>
 
         <chapter title="Импорты" id="code-structure-imports">
-            <p>Импорты модулей в JS/TS нужно сортировать по порядку:</p>
+            <p>Импорты модулей в JS/TS нужно сортировать по категориям:</p>
             <list type="decimal">
                 <li>
-                    <p>Импорты из сторонних библиотек</p>
+                    <p>Категория импортов из сторонних библиотек</p>
                     <code-block lang="javascript">
                         import React from "react"
                         import Image from "next/Image"
@@ -726,7 +726,7 @@
                     </code-block>
                 </li>
                 <li>
-                    <p>Импорты компонентов, блоков, ui элементов</p>
+                    <p>Категориям импортов компонентов, блоков, ui элементов</p>
                     <code-block lang="javascript">
                         import Popup from "features/popup"
                         import Input from "ui/inputs/Input"
@@ -735,7 +735,7 @@
                     </code-block>
                 </li>
                 <li>
-                    <p>Импорты функционала, утилит, обработчиков:</p>
+                    <p>Категория функционала, утилит, обработчиков:</p>
                     <code-block lang="javascript">
                         import { getCity } from "globals/api"
                         import { parseText } from "globals/text"
@@ -743,7 +743,7 @@
                     </code-block>
                 </li>
                 <li>
-                    <p>Импорты типов, констант</p>
+                    <p>Категория типов, констант</p>
                     <code-block lang="typescript">
                         import { ROUTES } from "globals/api"
                         import type { Route } from "globals/api"
@@ -751,7 +751,7 @@
                     </code-block>
                 </li>
                 <li>
-                    <p>Импорты файлов и стилей</p>
+                    <p>Категория файлов и стилей</p>
                     <code-block lang="javascript">
                         import phoneIcon from "assets/icon/phone.svg"
                         import styles from "./Contacts.styles.scss"
@@ -769,22 +769,27 @@
                 </li>
             </list>
 
-            <code-block lang="typescript" collapsible="true">
-                import React from "react"
-                import Image from "next/Image"
-                import { Slider } from "swiper"
+            <code-block lang="typescript">
+                //
+                                                    // Сортировка по длине строки
+                import React from "react"           // -
+                import Image from "next/Image"      // --
+                import { Slider } from "swiper"     // ---
 
                 import Popup from "features/popup"
                 import Input from "ui/inputs/Input"
                 import Container from "layout/Container"
-                import Contacts from "components/Contacts"
+                /* Импорт компонента и константы */
+                import Contacts, { ADDRESSES } from "components/Contacts"
 
-                import { getCity } from "globals/api"
-                import { parseText } from "globals/text"
-                import { ThemeContext } from "features/theme"
+                                                                // Сортировать можно в обратном порядке
+                import { ThemeContext } from "features/theme"   // ---
+                import { parseText } from "globals/text"        // --
+                import { getCity } from "globals/api"           // -
 
                 import { ROUTES } from "globals/api"
                 import type { Route } from "globals/api"
+                /* Отдельный импорт типа, при этом выше импортируется компонент */
                 import type { Props as ContactsProps } from "components/Contacts"
 
                 import phoneIcon from "assets/icon/phone.svg"
