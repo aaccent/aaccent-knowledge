@@ -511,207 +511,285 @@
                 &lt;/div&gt;
             </code-block>
         </chapter>
-    </chapter>
 
-    <chapter title="Стили" id="styles">
-        <chapter title="Порядок" id="styles-order">
-            <p>
-                При написании стилей в tailwind или css, параметры нужно сортировать по порядку:
-            </p>
-            <tabs>
-                <tab title="CSS/SCSS">
-                    <list type="decimal">
-                        <li><code>content</code></li>
-                        <li>
-                            Позиционирование:
-                            <code>position</code>,
-                            <code>translate</code>,
-                            <code>left</code>,
-                            <code>top</code> и т.д
-                        </li>
-                        <li>
-                            Отступы:
-                            <code>margin</code>,
-                            <code>padding</code>
-                        </li>
-                        <li>
-                            Размеры:
-                            <code>width</code>,
-                            <code>maw-width</code>,
-                            <code>height</code>,
-                            <code>maw-height</code>,
-                            <code>scale</code>
-                        </li>
-                        <li>
-                            Расположение:
-                            <code>display</code>
-                            <code>flex</code>
-                            <code>flex-shrink</code>
-                            <code>align-items</code>
-                            <code>justify-item</code>
-                            <code>justify-self</code>
-                            <code>gap</code>
-                        </li>
-                        <li>
-                            Визуальное:
-                            <code>background</code>,
-                            <code>background-position</code>,
-                            <code>border</code>
-                            <code>border-radius</code>
-                            <code>object-fit</code>,
-                            <code>overflow</code>
-                            <code>caret-color</code>
-                        </li>
-                        <li>
-                            Текст:
-                            <code>text-transform</code>,
-                            <code>font</code>,
-                            <code>text-align</code>
-                        </li>
-                        <li>
-                            Состояния:
-                            <code>cursor</code>,
-                            <code>transition</code>,
-                        </li>
-                    </list>
-                </tab>
-                <tab title="Tailwind">
-                    <list type="decimal">
-                        <li>
-                            Объявление группы или родственника:
-                            <code>group</code>
-                            <code>group/name</code>
-                            <code>peer</code>
-                            <code>peer/name</code>
-                        </li>
-                        <li><code>content</code></li>
-                        <li>
-                            Позиционирование:
-                            <code>absolute</code>,
-                            <code>relative</code>,
-                            <code>translate</code>,
-                            <code>z</code>,
-                            <code>left</code>,
-                            <code>top</code> и т.д
-                        </li>
-                        <li>
-                            Отступы:
-                            <code>m</code>,
-                            <code>p</code>
-                        </li>
-                        <li>
-                            Размеры:
-                            <code>size</code>,
-                            <code>w</code>,
-                            <code>maw-w</code>,
-                            <code>h</code>,
-                            <code>maw-h</code>,
-                            <code>scale</code>
-                        </li>
-                        <li>
-                            Расположение:
-                            <code>block</code>
-                            <code>flex</code>
-                            <code>shrink</code>
-                            <code>items-center</code>
-                            <code>justify-between</code>
-                        </li>
-                        <li>
-                            Визуальное:
-                            <code>bg</code>,
-                            <code>bg-bottom</code>,
-                            <code>border</code>
-                            <code>divide</code>
-                            <code>object-cover</code>,
-                            <code>overflow</code>
-                            <code>caret</code>
-                        </li>
-                        <li>
-                            Текст:
-                            <code>uppercase</code>,
-                            <code>text</code>,
-                            <code>text-center</code>
-                        </li>
-                        <li>
-                            Состояния:
-                            <code>cursor</code>,
-                            <code>placeholder:</code>,
-                            <code>hover:</code>,
-                            <code>disabled:</code>,
-                        </li>
-                        <li>
-                            <code>before:</code>
-                            <code>after:</code>
-                        </li>
-                        <li>Медиа запросы</li>
-                    </list>
-                </tab>
-            </tabs>
-            <note>
+        <chapter title="Стили" id="styles">
+            <chapter title="Порядок" id="styles-order">
                 <p>
-                    Порядок классов при медиа запросах в Tailwind действует такой-же, как и при обычных стилях
+                    При написании стилей в tailwind или css, параметры нужно сортировать по порядку:
                 </p>
+                <tabs>
+                    <tab title="CSS/SCSS">
+                        <list type="decimal">
+                            <li><code>content</code></li>
+                            <li>
+                                Позиционирование:
+                                <code>position</code>,
+                                <code>translate</code>,
+                                <code>left</code>,
+                                <code>top</code> и т.д
+                            </li>
+                            <li>
+                                Отступы:
+                                <code>margin</code>,
+                                <code>padding</code>
+                            </li>
+                            <li>
+                                Размеры:
+                                <code>width</code>,
+                                <code>maw-width</code>,
+                                <code>height</code>,
+                                <code>maw-height</code>,
+                                <code>scale</code>
+                            </li>
+                            <li>
+                                Расположение:
+                                <code>display</code>
+                                <code>flex</code>
+                                <code>flex-shrink</code>
+                                <code>align-items</code>
+                                <code>justify-item</code>
+                                <code>justify-self</code>
+                                <code>gap</code>
+                            </li>
+                            <li>
+                                Визуальное:
+                                <code>background</code>,
+                                <code>background-position</code>,
+                                <code>border</code>
+                                <code>border-radius</code>
+                                <code>object-fit</code>,
+                                <code>overflow</code>
+                                <code>caret-color</code>
+                            </li>
+                            <li>
+                                Текст:
+                                <code>text-transform</code>,
+                                <code>font</code>,
+                                <code>text-align</code>
+                            </li>
+                            <li>
+                                Состояния:
+                                <code>cursor</code>,
+                                <code>transition</code>,
+                            </li>
+                        </list>
+                    </tab>
+                    <tab title="Tailwind">
+                        <list type="decimal">
+                            <li>
+                                Объявление группы или родственника:
+                                <code>group</code>
+                                <code>group/name</code>
+                                <code>peer</code>
+                                <code>peer/name</code>
+                            </li>
+                            <li><code>content</code></li>
+                            <li>
+                                Позиционирование:
+                                <code>absolute</code>,
+                                <code>relative</code>,
+                                <code>translate</code>,
+                                <code>z</code>,
+                                <code>left</code>,
+                                <code>top</code> и т.д
+                            </li>
+                            <li>
+                                Отступы:
+                                <code>m</code>,
+                                <code>p</code>
+                            </li>
+                            <li>
+                                Размеры:
+                                <code>size</code>,
+                                <code>w</code>,
+                                <code>maw-w</code>,
+                                <code>h</code>,
+                                <code>maw-h</code>,
+                                <code>scale</code>
+                            </li>
+                            <li>
+                                Расположение:
+                                <code>block</code>
+                                <code>flex</code>
+                                <code>shrink</code>
+                                <code>items-center</code>
+                                <code>justify-between</code>
+                            </li>
+                            <li>
+                                Визуальное:
+                                <code>bg</code>,
+                                <code>bg-bottom</code>,
+                                <code>border</code>
+                                <code>divide</code>
+                                <code>object-cover</code>,
+                                <code>overflow</code>
+                                <code>caret</code>
+                            </li>
+                            <li>
+                                Текст:
+                                <code>uppercase</code>,
+                                <code>text</code>,
+                                <code>text-center</code>
+                            </li>
+                            <li>
+                                Состояния:
+                                <code>cursor</code>,
+                                <code>placeholder:</code>,
+                                <code>hover:</code>,
+                                <code>disabled:</code>,
+                            </li>
+                            <li>
+                                <code>before:</code>
+                                <code>after:</code>
+                            </li>
+                            <li>Медиа запросы</li>
+                        </list>
+                    </tab>
+                </tabs>
+                <note>
+                    <p>
+                        Порядок классов при медиа запросах в Tailwind действует такой-же, как и при обычных стилях
+                    </p>
 
-                <code-block lang="html">
-                    &lt;div class="
-                    absolute
-                    left-0
-                    top-0
-                    p-[5px]
-                    m-[5px]
-                    w-[10px]
-                    h-[5px]
-                    block
-                    md:relative
-                    md:top-1
-                    md:m-[10px]
-                    "&gt;&lt;/div&gt;
-                </code-block>
+                    <code-block lang="html">
+                        &lt;div class="
+                        absolute
+                        left-0
+                        top-0
+                        p-[5px]
+                        m-[5px]
+                        w-[10px]
+                        h-[5px]
+                        block
+                        md:relative
+                        md:top-1
+                        md:m-[10px]
+                        "&gt;&lt;/div&gt;
+                    </code-block>
 
-                <emphasis>Подобное форматирование классов применено только в целях удобной демонстрации</emphasis>
-            </note>
+                    <emphasis>Подобное форматирование классов применено только в целях удобной демонстрации</emphasis>
+                </note>
+            </chapter>
+
+            <chapter title="Наименования" id="styles-naming">
+                <p>
+                    Наименования классов происходит согласно <a href="https://ru.bem.info/">BEM</a>, но с изменениями:
+                </p>
+                <list>
+                    <li>
+                        <p>
+                            Классы, которые описывают вариации элемента, именуются согласно BEM, но
+                            вместо нижнего подчеркивания (<code>_</code>) используются два тире (<code>--</code>)
+                        </p>
+                        <tabs>
+                            <tab title="Согласно BEM">
+                                <code>block__element_modifier</code>
+                            </tab>
+                            <tab title="Стиль Two Dashes">
+                                <code>block__element--modifier</code>
+                            </tab>
+                        </tabs>
+                    </li>
+                    <li>
+                        <p>
+                            Классы или Булевые модификаторы, которые описывают состояние элемента, именуются без блока и элемента.
+                        </p>
+                        <tabs>
+                            <tab title="Согласно BEM">
+                                <code>block__element_active</code>
+                            </tab>
+                            <tab title="Стиль No-namespace">
+                                <code>block__element _active</code>
+                            </tab>
+                        </tabs>
+                        <tip>
+                            <control>Зачем?</control>
+                            <p>
+                                Это упрощает использование классов в JS.
+                                Не нужно писать огромные классы для изменения активного состояния.
+                            </p>
+                        </tip>
+                    </li>
+                </list>
+            </chapter>
         </chapter>
 
-        <chapter title="Наименования" id="styles-naming">
-            <p>
-                Наименования классов происходит согласно <a href="https://ru.bem.info/">BEM</a>, но с изменениями:
-            </p>
-            <list>
+        <chapter title="Импорты" id="code-structure-imports">
+            <p>Импорты модулей в JS/TS нужно сортировать по порядку:</p>
+            <list type="decimal">
                 <li>
-                    <p>
-                        Классы, которые описывают вариации элемента, именуются согласно BEM, но
-                        вместо нижнего подчеркивания (<code>_</code>) используются два тире (<code>--</code>)
-                    </p>
-                    <tabs>
-                        <tab title="Согласно BEM">
-                            <code>block__element_modifier</code>
-                        </tab>
-                        <tab title="Стиль Two Dashes">
-                            <code>block__element--modifier</code>
-                        </tab>
-                    </tabs>
+                    <p>Импорты из сторонних библиотек</p>
+                    <code-block lang="javascript">
+                        import React from "react"
+                        import Image from "next/Image"
+                        import { Slider } from "swiper"
+                    </code-block>
                 </li>
                 <li>
-                    <p>
-                        Классы или Булевые модификаторы, которые описывают состояние элемента, именуются без блока и элемента.
-                    </p>
-                    <tabs>
-                        <tab title="Согласно BEM">
-                            <code>block__element_active</code>
-                        </tab>
-                        <tab title="Стиль No-namespace">
-                            <code>block__element _active</code>
-                        </tab>
-                    </tabs>
-                    <tip>
-                        <control>Зачем?</control>
-                        <p>
-                            Это упрощает использование классов в JS.
-                            Не нужно писать огромные классы для изменения активного состояния.
-                        </p>
-                    </tip>
+                    <p>Импорты компонентов, блоков, ui элементов</p>
+                    <code-block lang="javascript">
+                        import Popup from "features/popup"
+                        import Input from "ui/inputs/Input"
+                        import Container from "layout/Container"
+                        import Contacts from "components/Contacts"
+                    </code-block>
+                </li>
+                <li>
+                    <p>Импорты функционала, утилит, обработчиков:</p>
+                    <code-block lang="javascript">
+                        import { getCity } from "globals/api"
+                        import { parseText } from "globals/text"
+                        import { ThemeContext } from "features/theme"
+                    </code-block>
+                </li>
+                <li>
+                    <p>Импорты типов, констант</p>
+                    <code-block lang="typescript">
+                        import { ROUTES } from "globals/api"
+                        import type { Route } from "globals/api"
+                        import type { Props as ContactsProps } from "components/Contacts"
+                    </code-block>
+                </li>
+                <li>
+                    <p>Импорты файлов и стилей</p>
+                    <code-block lang="javascript">
+                        import phoneIcon from "assets/icon/phone.svg"
+                        import styles from "./Contacts.styles.scss"
+                    </code-block>
                 </li>
             </list>
+
+            <control>Общие правила:</control>
+            <list>
+                <li>Сортировать внутри категорий нужно по длине строки.</li>
+                <li>Между категориями должна быть пустая строка.</li>
+                <li>
+                    Если импортируется компонент и его тип, то компонент должен быть в своей категории, а тип в своей.
+                    Если импортируется компонент и его константа, константа импортируется вместе с компонентом.
+                </li>
+            </list>
+
+            <code-block lang="typescript" collapsible="true">
+                import React from "react"
+                import Image from "next/Image"
+                import { Slider } from "swiper"
+
+                import Popup from "features/popup"
+                import Input from "ui/inputs/Input"
+                import Container from "layout/Container"
+                import Contacts from "components/Contacts"
+
+                import { getCity } from "globals/api"
+                import { parseText } from "globals/text"
+                import { ThemeContext } from "features/theme"
+
+                import { ROUTES } from "globals/api"
+                import type { Route } from "globals/api"
+                import type { Props as ContactsProps } from "components/Contacts"
+
+                import phoneIcon from "assets/icon/phone.svg"
+                import styles from "./Contacts.styles.scss"
+            </code-block>
         </chapter>
     </chapter>
 </topic>
