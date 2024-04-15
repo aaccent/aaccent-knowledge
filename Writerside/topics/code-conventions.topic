@@ -439,67 +439,78 @@
     </chapter>
 
     <chapter title="Структура кода" id="code-structure">
-        <p>
-            JavaScript позволяет вызывать функции до их объявления.
-            Такое поведение может путать, поэтому все функции должны использоваться после их объявления.
-        </p>
+        <chapter title="Функции JS" id="code-structure-functions">
+            <p>
+                JavaScript позволяет вызывать функции до их объявления.
+                Такое поведение может путать, поэтому все функции должны использоваться после их объявления.
+            </p>
 
-        <p>
-            Подобное касается React компонентов. Функции внутри компонентов должны объявляться в начале компонента
-        </p>
+            <p>
+                Подобное касается React компонентов. Функции внутри компонентов должны объявляться в начале компонента
+            </p>
 
-        <tabs>
-            <tab title="Не правильно">
-                <warning>
-                    <p><code>output()</code> используется до его объявления</p>
+            <tabs>
+                <tab title="Не правильно">
+                    <warning>
+                        <p><code>output()</code> используется до его объявления</p>
 
-                    <code-block lang="javascript">
-                        import React from 'react'
+                        <code-block lang="javascript">
+                            import React from 'react'
 
-                        export default function Component() {
+                            export default function Component() {
                             return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
 
                             function output(list) {
-                                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                            return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
                             }
-                        }
-                    </code-block>
-                </warning>
-            </tab>
-            <tab title="Правильно">
-                <note>
-                    <p><code>output()</code> объявлен перед использованием</p>
+                            }
+                        </code-block>
+                    </warning>
+                </tab>
+                <tab title="Правильно">
+                    <note>
+                        <p><code>output()</code> объявлен перед использованием</p>
 
-                    <code-block lang="javascript">
-                        import React from 'react'
+                        <code-block lang="javascript">
+                            import React from 'react'
 
-                        export default function Component() {
+                            export default function Component() {
                             function output(list) {
-                                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                            return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
                             }
 
                             return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
-                        }
-                    </code-block>
-                </note>
-            </tab>
-        </tabs>
+                            }
+                        </code-block>
+                    </note>
+                </tab>
+            </tabs>
 
-        <tip>
-            <p>Если возможно, то функции нужно выводить вне компонента</p>
+            <tip>
+                <p>Если возможно, то функции нужно выводить вне компонента</p>
 
-            <code-block lang="javascript">
-                import React from 'react'
+                <code-block lang="javascript">
+                    import React from 'react'
 
-                function output(list) {
+                    function output(list) {
                     return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
-                }
+                    }
 
-                export default function Component() {
+                    export default function Component() {
                     return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
-                }
+                    }
+                </code-block>
+            </tip>
+        </chapter>
+
+        <chapter title="Разметка" id="code-structure-layout">
+            <p>В атрибутах разметки <code>class</code> всегда должен быть первым</p>
+            <code-block lang="html">
+                &lt;div class="block"&gt;
+                    &lt;a class="block__link" href="#"&gt;some-link&lt;/a&gt;
+                &lt;/div&gt;
             </code-block>
-        </tip>
+        </chapter>
     </chapter>
 
     <chapter title="Стили" id="styles">
