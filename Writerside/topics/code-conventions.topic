@@ -458,11 +458,11 @@
                             import React from 'react'
 
                             export default function Component() {
-                            return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                                return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
 
-                            function output(list) {
-                            return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
-                            }
+                                function output(list) {
+                                    return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                                }
                             }
                         </code-block>
                     </warning>
@@ -475,11 +475,11 @@
                             import React from 'react'
 
                             export default function Component() {
-                            function output(list) {
-                            return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
-                            }
+                                function output(list) {
+                                    return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                                }
 
-                            return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                                return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
                             }
                         </code-block>
                     </note>
@@ -493,11 +493,11 @@
                     import React from 'react'
 
                     function output(list) {
-                    return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                        return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
                     }
 
                     export default function Component() {
-                    return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                        return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
                     }
                 </code-block>
             </tip>
