@@ -449,23 +449,6 @@
         </p>
 
         <tabs>
-            <tab title="Правильно">
-                <note>
-                    <p><code>output()</code> объявлен перед использованием</p>
-
-                    <code-block lang="javascript">
-                        import React from 'react'
-
-                        export default function Component() {
-                        function output(list) {
-                        return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
-                        }
-
-                        return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
-                        }
-                    </code-block>
-                </note>
-            </tab>
             <tab title="Не правильно">
                 <warning>
                     <p><code>output()</code> используется до его объявления</p>
@@ -474,14 +457,31 @@
                         import React from 'react'
 
                         export default function Component() {
-                        return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
-                        }
+                            return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
 
-                        function output(list) {
-                        return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                            function output(list) {
+                                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                            }
                         }
                     </code-block>
                 </warning>
+            </tab>
+            <tab title="Правильно">
+                <note>
+                    <p><code>output()</code> объявлен перед использованием</p>
+
+                    <code-block lang="javascript">
+                        import React from 'react'
+
+                        export default function Component() {
+                            function output(list) {
+                                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                            }
+
+                            return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                        }
+                    </code-block>
+                </note>
             </tab>
         </tabs>
 
@@ -492,11 +492,11 @@
                 import React from 'react'
 
                 function output(list) {
-                return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
+                    return list.map(i => &lt;li&gt;{i}&lt;/li&gt;)
                 }
 
                 export default function Component() {
-                return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
+                    return &lt;ul&gt;{output([1,2,3])}&lt;/ul&gt;
                 }
             </code-block>
         </tip>
