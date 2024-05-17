@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Соглашение по коду backend" id="code-conventions-backend" help-id="code-conduct-backend">
+    <show-structure for="chapter, def" depth="3"/>
+
+<chapter title="Классы" id="classes">
+    <p>
+        Название классов должно соответствовать
+        <control>PascalCase</control>
+    </p>
+</chapter>
+
+<chapter title="Методы" id="methods">
+    <p>
+        Название методов должно соответствовать <control>camelCase</control>.
+        Если метод возвращает <code>true</code> или <code>false</code>,
+        то метод должен начинаться с <control>is</control>,
+        например: <path>isRoot</path>.
+    </p>
+</chapter>
+
+<chapter title="Переменные" id="variables">
+    <p>
+        Название переменных должно соответствовать
+        <control>camelCase</control>
+    </p>
+    <p>
+        Названия <code>boolean</code> переменных должны содержать глагол
+        <control>is</control>
+    </p>
+</chapter>
+
+<chapter title="Разработка" id="development">
+    <deflist>
+        <def title="Service">Класс для бизнес-логики</def>
+        <def title="Dto">Общение между слоями должен происходит через Dto</def>
+        <def title="Repository">
+            В этом классе происходит вся работа с БД.
+            Обязательно используется с contract(interface).
+            Для каждой модели создается отдельный Repository
+        </def>
+        <def title="UseCase">
+            В этом классе проверяется права доступа.
+            Обязательно используется с contract(interface)
+        </def>
+    </deflist>
+</chapter>
+
+<chapter title="Логика запроса" id="request-logic">
+    <p>Controller(Request) => service(Dto) или UseCase(Dto)</p>
+
+    <p>1. Controller(Request) => Service(Dto)</p>
+    <p><path>Service(Dto) => Repositoty(Dto)</path></p>
+
+    <p>2. Controller(Request) => UseCase(Dto)</p>
+    <p><path>UserCase(Dto) => Service(Dto)</path></p>
+    <p><path>Service(Dto) => Repositoty(Dto)</path></p>
+</chapter>
+
+<chapter title="Расположение файлов" id="file-location">
+    <control>Пример</control>
+    <code-block>
+        Modules/
+        └── Account/
+            └── Models/
+                └── User/
+                    └── User.php
+    </code-block>
+    <p>Допускается расположение модели связки с родительской моделью.</p>
+    <p>
+        Например, модель <path>UserSetting.php</path> с <path>User.php</path>.
+    </p>
+</chapter>
+
+<chapter title="Git Workflow" id="git-workflow">
+    <chapter title="Создание ветки" id="creating-branch">
+        <list type="decimal">
+            <li>
+                <p>
+                    Из главной ветки создается ветка с номером задачи и кратким описание.
+                    Пример: <path>23-auth-user</path>
+                </p>
+                <code-block lang="mermaid">
+                    gitGraph
+                        commit
+                        commit
+                        branch 23-auth-user
+                        checkout 23-auth-user
+                        commit id: "write the procedure"
+                        commit id: "update screenshots"
+                        checkout main
+                        merge 23-auth-user
+                        commit
+                        commit
+                </code-block>
+            </li>
+            <li>
+                <p>
+                    Если задача связана с другими задачами,
+                    то можно называть ветку следующем образом:
+                    <path>23-24-auth-user</path>
+                </p>
+
+                <code-block lang="mermaid">
+                    gitGraph
+                        commit
+                        commit
+                        branch 23-24-auth-user
+                        checkout 23-24-auth-user
+                        commit id: "write the procedure"
+                        checkout main
+                        merge 23-24-auth-user
+                        commit
+                        commit
+                </code-block>
+            </li>
+        </list>
+    </chapter>
+
+    <chapter title="Pull Request" id="pull-request">
+        <list type="decimal">
+            <li>После выполнения задачи надо создать pull request</li>
+            <li>Если PR не прошел проверку CI, то надо исправить ошибки и пройти CI еще раз</li>
+        </list>
+    </chapter>
+</chapter>
+</topic>

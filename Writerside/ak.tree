@@ -13,6 +13,7 @@
         <toc-element topic="layout-in-team.topic"/>
     </toc-element>
     <toc-element toc-title="Внутренние инструкции">
+        <toc-element topic="code-conventions-backend.topic"/>
         <toc-element topic="code-conventions.topic"/>
     </toc-element>
     <toc-element toc-title="Объяснения">
